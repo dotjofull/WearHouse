@@ -203,4 +203,8 @@ Admin users use the same login page as normal users. A user becomes an admin whe
 ## Author
 
 WearHouse Project
-                
+
+              ## Live Demo
+
+Frontend: https://wearhousee.vercel.app/
+Backend: https://wearhouse-yrny.onrender.com  
