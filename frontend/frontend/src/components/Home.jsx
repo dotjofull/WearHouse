@@ -14,7 +14,7 @@ const Home = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/category");
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/category`);
       setCategories(response.data);
     } catch (error) {
       console.error("Failed to fetch categories:", error);
@@ -25,7 +25,7 @@ const Home = () => {
     try {
       setLoading(true);
 
-      let url = "http://localhost:5000/api/products";
+      let url = `${import.meta.env.VITE_API_URL}/api/products`;
       const queryParams = [];
 
       if (selectedCategory) {

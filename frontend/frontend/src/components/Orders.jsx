@@ -9,7 +9,7 @@ const Orders = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/orders/my", {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/orders/my`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

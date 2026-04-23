@@ -35,7 +35,7 @@ const AdminDashboard = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/products");
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/products`);
       setProducts(response.data);
     } catch (error) {
       console.error("Failed to fetch products:", error);
@@ -45,7 +45,7 @@ const AdminDashboard = () => {
   const fetchOrders = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/orders",
+        `${import.meta.env.VITE_API_URL}/api/orders`,
         authHeaders
       );
       setOrders(response.data);
@@ -56,7 +56,7 @@ const AdminDashboard = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/category");
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/category`);
       setCategories(response.data);
     } catch (error) {
       console.error("Failed to fetch categories:", error);
@@ -130,7 +130,7 @@ const AdminDashboard = () => {
 
     if (editingProductId) {
       await axios.put(
-        `http://localhost:5000/api/products/${editingProductId}`,
+        `${import.meta.env.VITE_API_URL}/api/products/${editingProductId}`,
         formData,
         {
           headers: {
@@ -139,7 +139,7 @@ const AdminDashboard = () => {
         }
       );
     } else {
-      await axios.post("http://localhost:5000/api/products", formData, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/products`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -182,7 +182,7 @@ const AdminDashboard = () => {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/products/${productId}`,
+        `${import.meta.env.VITE_API_URL}/api/products/${productId}`,
         authHeaders
       );
       fetchProducts();
@@ -197,13 +197,13 @@ const AdminDashboard = () => {
     try {
       if (editingCategoryId) {
         await axios.put(
-          `http://localhost:5000/api/category/${editingCategoryId}`,
+          `${import.meta.env.VITE_API_URL}/api/category/${editingCategoryId}`,
           categoryForm,
           authHeaders
         );
       } else {
         await axios.post(
-          "http://localhost:5000/api/category",
+          `${import.meta.env.VITE_API_URL}/api/category`,
           categoryForm,
           authHeaders
         );
@@ -233,7 +233,7 @@ const AdminDashboard = () => {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/category/${categoryId}`,
+        `${import.meta.env.VITE_API_URL}/api/category/${categoryId}`,
         authHeaders
       );
       fetchCategories();
@@ -246,7 +246,7 @@ const AdminDashboard = () => {
   const handleStatusChange = async (orderId, status) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/orders/${orderId}/status`,
+        `${import.meta.env.VITE_API_URL}/api/orders/${orderId}/status`,
         { status },
         authHeaders
       );

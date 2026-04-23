@@ -198,12 +198,6 @@ Admin users use the same login page as normal users. A user becomes an admin whe
 
 ## Future Improvements
 
-- Google Sign In
-- Mail service
-- Message verification
-- Geolocation
-- Online payment
-- Real-time notifications
 - Cloudinary integration
 
 ## Author
